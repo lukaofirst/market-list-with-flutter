@@ -23,7 +23,7 @@ class CheckListScreen extends StatefulWidget {
 
 class _CheckListScreenState extends State<CheckListScreen> {
   late Future<List<Product>> _futureGetStoredProducts;
-  ScrollController scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   bool showBtn = false;
 
   @override
@@ -33,10 +33,10 @@ class _CheckListScreenState extends State<CheckListScreen> {
       () => _getStoredProducts(),
     );
 
-    scrollController.addListener(() {
+    _scrollController.addListener(() {
       var showOffset = 10.0;
 
-      if (scrollController.offset > showOffset) {
+      if (_scrollController.offset > showOffset) {
         setState(() {
           showBtn = true;
         });
@@ -112,7 +112,10 @@ class _CheckListScreenState extends State<CheckListScreen> {
               return Column(
                 children: [
                   DeleteButton(action: _confirmDeleteProducts),
-                  ProductListStored(items: snapshot.data!)
+                  ProductListStored(
+                    items: snapshot.data!,
+                    scrollController: _scrollController,
+                  )
                 ],
               );
             } else {
@@ -124,7 +127,7 @@ class _CheckListScreenState extends State<CheckListScreen> {
         ),
         floatingActionButton: ButtonToTop(
           showBtn: showBtn,
-          scrollController: scrollController,
+          scrollController: _scrollController,
         ),
       ),
     );

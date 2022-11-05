@@ -7,13 +7,18 @@ import '../../models/product.dart';
 
 class ProductListStored extends StatelessWidget {
   final List<Product> items;
+  final ScrollController scrollController;
 
-  const ProductListStored({required this.items});
+  const ProductListStored({
+    required this.items,
+    required this.scrollController,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        controller: scrollController,
         shrinkWrap: true,
         itemBuilder: (_, idx) => ProductItemStored(storedItem: items[idx]),
         itemCount: items.length,

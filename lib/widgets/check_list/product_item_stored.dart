@@ -10,11 +10,16 @@ class ProductItemStored extends StatefulWidget {
   State<ProductItemStored> createState() => _ProductItemStoredState();
 }
 
-class _ProductItemStoredState extends State<ProductItemStored> {
+class _ProductItemStoredState extends State<ProductItemStored>
+    with AutomaticKeepAliveClientMixin {
   var isChecked = false;
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     var theme = Theme.of(context);
 
     return InkWell(
