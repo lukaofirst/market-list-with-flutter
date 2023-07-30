@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:market_list_flutter/mocked_data.dart';
-import 'package:market_list_flutter/models/product.dart';
-import 'package:market_list_flutter/widgets/save_list/product_list.dart';
-import 'package:market_list_flutter/widgets/shared/close_app_dialog.dart';
+import 'package:market_list_with_flutter/mocked_data.dart';
+import 'package:market_list_with_flutter/models/product.dart';
+import 'package:market_list_with_flutter/widgets/save_list/product_list.dart';
+import 'package:market_list_with_flutter/widgets/shared/close_app_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/save_list/save_button.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:market_list_flutter/models/product.dart';
+import 'package:market_list_with_flutter/models/product.dart';
 
 class ProductItem extends StatefulWidget {
   final Product item;

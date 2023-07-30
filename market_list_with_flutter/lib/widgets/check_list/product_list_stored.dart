@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:market_list_flutter/widgets/check_list/product_item_stored.dart';
+import 'package:market_list_with_flutter/widgets/check_list/product_item_stored.dart';
 
 import '../../models/product.dart';
 

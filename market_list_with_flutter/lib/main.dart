@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:market_list_flutter/screen/check_list_screen.dart';
-import 'package:market_list_flutter/screen/save_list_screen.dart';
+import 'package:market_list_with_flutter/screen/check_list_screen.dart';
+import 'package:market_list_with_flutter/screen/save_list_screen.dart';
 
 import 'screen/home_screen.dart';
 

@@ -1,4 +1,4 @@
-import 'package:market_list_flutter/models/product.dart';
+import 'package:market_list_with_flutter/models/product.dart';
 
 var mockedItems = <Product>[
   Product(id: 1, name: 'Papel Toalha', quantity: 1),
