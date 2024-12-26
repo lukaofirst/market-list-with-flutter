@@ -4,4 +4,4 @@ flutter_native_splash:
     web: false
     color: '#ffffff'
     android_12:
-        image: assets/market-list.png
+        image: assets/market-list-splash-icon.png
