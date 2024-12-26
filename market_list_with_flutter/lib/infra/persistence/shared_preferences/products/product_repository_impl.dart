@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:market_list_with_flutter/domain/entities/product.dart';
-import 'package:market_list_with_flutter/infra/persistence/interfaces/product_repository.dart';
+import 'package:market_list_with_flutter/infra/persistence/shared_preferences/products/interfaces/product_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
