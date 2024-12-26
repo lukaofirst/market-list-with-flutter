@@ -20,7 +20,7 @@ class IoC {
   }
 
   IoC addUseCases() {
-    getIt.registerSingleton<GetAllProductUseCase>(
+    getIt.registerSingleton<GetAllProductsUseCase>(
         GetAllProductsUseCaseImpl(getIt.get<ProductRepository>()));
 
     getIt.registerSingleton<UpsertProductUseCase>(

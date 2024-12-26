@@ -2,7 +2,7 @@ import 'package:market_list_with_flutter/application/use_cases/products/interfac
 import 'package:market_list_with_flutter/domain/entities/product.dart';
 import 'package:market_list_with_flutter/infra/persistence/interfaces/product_repository.dart';
 
-class GetAllProductsUseCaseImpl implements GetAllProductUseCase {
+class GetAllProductsUseCaseImpl implements GetAllProductsUseCase {
   late final ProductRepository _productRepository;
 
   GetAllProductsUseCaseImpl(ProductRepository productRepository) {
