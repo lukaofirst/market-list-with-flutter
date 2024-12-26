@@ -26,12 +26,12 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
   late Future<List<Product>> _futureGetStoredProducts;
   final ScrollController _scrollController = ScrollController();
   bool showBtn = false;
-  late GetAllProductUseCase _getAllProductUseCase;
+  late GetAllProductsUseCase _getAllProductUseCase;
   late DeleteAllProductsUseCase _deleteAllProductsUseCase;
 
   @override
   void initState() {
-    _getAllProductUseCase = getIt<GetAllProductUseCase>();
+    _getAllProductUseCase = getIt<GetAllProductsUseCase>();
     _deleteAllProductsUseCase = getIt<DeleteAllProductsUseCase>();
 
     _futureGetStoredProducts = Future.delayed(

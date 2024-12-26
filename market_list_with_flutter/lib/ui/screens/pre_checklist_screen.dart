@@ -70,7 +70,7 @@ class _PreChecklistScreenState extends State<PreChecklistScreen> {
         ),
         body: Column(
           children: [
-            const SaveButton(),
+            SaveButton(),
             ProductList(
               items: _initialProducts,
               scrollController: _scrollController,
