@@ -18,12 +18,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GetAllProductsUseCase _getAllProductUseCase =
+      getIt<GetAllProductsUseCase>();
   late Future<List<Product>> _futureGetStoredProducts;
-  late GetAllProductsUseCase _getAllProductUseCase;
 
   @override
   void initState() {
-    _getAllProductUseCase = getIt<GetAllProductsUseCase>();
     _futureGetStoredProducts = _getAllProductUseCase.execute().then(
           (products) => products.where((element) => element.picked).toList(),
         );

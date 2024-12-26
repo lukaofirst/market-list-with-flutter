@@ -23,17 +23,16 @@ class ChecklistScreen extends StatefulWidget {
 }
 
 class _ChecklistScreenState extends State<ChecklistScreen> {
-  late Future<List<Product>> _futureGetStoredProducts;
+  final GetAllProductsUseCase _getAllProductUseCase =
+      getIt<GetAllProductsUseCase>();
+  final DeleteAllProductsUseCase _deleteAllProductsUseCase =
+      getIt<DeleteAllProductsUseCase>();
   final ScrollController _scrollController = ScrollController();
+  late Future<List<Product>> _futureGetStoredProducts;
   bool showBtn = false;
-  late GetAllProductsUseCase _getAllProductUseCase;
-  late DeleteAllProductsUseCase _deleteAllProductsUseCase;
 
   @override
   void initState() {
-    _getAllProductUseCase = getIt<GetAllProductsUseCase>();
-    _deleteAllProductsUseCase = getIt<DeleteAllProductsUseCase>();
-
     _futureGetStoredProducts = Future.delayed(
       const Duration(milliseconds: 300),
       () async {
