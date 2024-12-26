@@ -13,19 +13,15 @@ class ProductItem extends StatefulWidget {
   State<ProductItem> createState() => _ProductItemState();
 }
 
-class _ProductItemState extends State<ProductItem>
-    with AutomaticKeepAliveClientMixin {
+class _ProductItemState extends State<ProductItem> {
   var isChecked = false;
-  late UpsertProductUseCase _upsertProductUseCase;
-  late DeleteProductUseCase _deleteProductUseCase;
-
-  @override
-  bool get wantKeepAlive => true;
+  final UpsertProductUseCase _upsertProductUseCase =
+      getIt<UpsertProductUseCase>();
+  final DeleteProductUseCase _deleteProductUseCase =
+      getIt<DeleteProductUseCase>();
 
   @override
   void initState() {
-    _upsertProductUseCase = getIt<UpsertProductUseCase>();
-    _deleteProductUseCase = getIt<DeleteProductUseCase>();
     super.initState();
 
     setState(() {
@@ -59,7 +55,6 @@ class _ProductItemState extends State<ProductItem>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     var theme = Theme.of(context);
 
     return Container(
