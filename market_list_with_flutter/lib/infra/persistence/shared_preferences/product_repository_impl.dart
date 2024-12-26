@@ -73,7 +73,8 @@ class ProductRepositoryImpl implements ProductRepository {
 
   @override
   Future<void> deleteAll() async {
-    _products.clear();
-    await _saveChangesAsync();
+    var sharedPreferences = await _initSharedPreferences();
+
+    await sharedPreferences.clear();
   }
 }
