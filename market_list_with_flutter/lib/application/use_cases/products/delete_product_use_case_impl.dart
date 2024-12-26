@@ -1,21 +1,21 @@
 import 'package:market_list_with_flutter/application/use_cases/products/interfaces/delete_product_use_case.dart';
-import 'package:market_list_with_flutter/infra/persistence/interfaces/product_repository.dart';
+import 'package:market_list_with_flutter/infra/persistence/shared_preferences/products/interfaces/product_repository.dart';
 
 class DeleteProductUseCaseImpl implements DeleteProductUseCase {
-  late final ProductRepository _productRepository;
+  late final ProductRepository _repository;
 
   DeleteProductUseCaseImpl(ProductRepository productRepository) {
-    _productRepository = productRepository;
+    _repository = productRepository;
   }
 
   @override
   void execute(int id) {
-    var product = _productRepository.getById(id);
+    var product = _repository.getById(id);
 
     if (product == null) {
       throw Exception('Product not found');
     }
 
-    _productRepository.delete(id);
+    _repository.delete(id);
   }
 }
