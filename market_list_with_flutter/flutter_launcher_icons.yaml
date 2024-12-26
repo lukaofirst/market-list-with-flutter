@@ -1,3 +1,5 @@
 flutter_launcher_icons:
     android: 'launcher_icon'
     image_path: 'assets/market-list.png'
+    adaptive_icon_background: '#ffffff'
+    adaptive_icon_foreground: 'assets/market-list.png'
