@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:market_list_with_flutter/screen/check_list_screen.dart';
-import 'package:market_list_with_flutter/screen/save_list_screen.dart';
+import 'package:market_list_with_flutter/ioc/ioc.dart';
+import 'package:market_list_with_flutter/ui/core/theme/theme_data.dart';
+import 'package:market_list_with_flutter/ui/screens/checklist_screen.dart';
+import 'package:market_list_with_flutter/ui/screens/pre_checklist_screen.dart';
 
-import 'screen/home_screen.dart';
+import 'ui/screens/home_screen.dart';
 
 void main() {
+  IoC().addRepositories().addUseCases();
   runApp(const MyApp());
 }
 
@@ -15,14 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Lista de Compras',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-        primaryColor: Colors.white,
-      ),
+      theme: getThemeData(),
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        SaveListScreen.routeName: (context) => SaveListScreen(),
-        CheckListScreen.routeName: (context) => CheckListScreen()
+        PreChecklistScreen.routeName: (context) => PreChecklistScreen(),
+        ChecklistScreen.routeName: (context) => ChecklistScreen()
       },
     );
   }
