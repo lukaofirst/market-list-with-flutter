@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:market_list_with_flutter/application/use_cases/product_item_stored_on_checklist/interfaces/load_checked_state_product_item_stored_on_checklist_use_case.dart';
+import 'package:market_list_with_flutter/application/use_cases/product_item_stored_on_checklist/interfaces/save_checked_state_product_item_stored_on_checklist_use_case.dart';
 import 'package:market_list_with_flutter/domain/entities/product.dart';
+import 'package:market_list_with_flutter/ioc/ioc.dart';
 
 class ProductItemStored extends StatefulWidget {
   final Product storedItem;
@@ -10,16 +13,36 @@ class ProductItemStored extends StatefulWidget {
   State<ProductItemStored> createState() => _ProductItemStoredState();
 }
 
-class _ProductItemStoredState extends State<ProductItemStored>
-    with AutomaticKeepAliveClientMixin {
+class _ProductItemStoredState extends State<ProductItemStored> {
+  final LoadCheckedStateProductItemStoredOnChecklistUseCase
+      _loadCheckedStateUseCase =
+      getIt<LoadCheckedStateProductItemStoredOnChecklistUseCase>();
+  final SaveCheckedStateProductItemStoredOnChecklistUseCase
+      _saveCheckedStateUseCase =
+      getIt<SaveCheckedStateProductItemStoredOnChecklistUseCase>();
   var isChecked = false;
 
   @override
-  bool get wantKeepAlive => true;
+  void initState() {
+    super.initState();
+    _loadCheckedState();
+  }
+
+  _loadCheckedState() async {
+    var isCheckedUpdated =
+        await _loadCheckedStateUseCase.execute(widget.storedItem.name);
+
+    setState(() {
+      isChecked = isCheckedUpdated;
+    });
+  }
+
+  _saveCheckedState() {
+    _saveCheckedStateUseCase.execute(widget.storedItem.name, isChecked);
+  }
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     var theme = Theme.of(context);
 
     return InkWell(
@@ -27,6 +50,8 @@ class _ProductItemStoredState extends State<ProductItemStored>
         setState(() {
           isChecked = !isChecked;
         });
+
+        _saveCheckedState();
       },
       child: Container(
         margin: const EdgeInsets.all(10),
